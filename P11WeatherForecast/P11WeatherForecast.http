@@ -1,0 +1,6 @@
+@P11WeatherForecast_HostAddress = http://localhost:5043
+
+GET {{P11WeatherForecast_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
