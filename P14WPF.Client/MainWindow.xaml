@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <ListBox x:Name="WeatherListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Date}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Temperature}" />
+                        <TextBlock Text="{Binding Summary}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
