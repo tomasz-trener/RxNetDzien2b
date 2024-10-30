@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace P14WPF.Client
 {
@@ -34,9 +35,10 @@ namespace P14WPF.Client
             AnotherListBox.ItemsSource = _anotherWeatherForecast;
 
             _weatherForecast = GetWeatherUpdates("http://localhost:5043/weatherforecast")
-                .Publish()
+                .Publish()  // publikujemy strumien zeby byl wspoldzielony miedzy subskrybentami nazywa się to hot observable
                 .RefCount();
-           
+
+          //  StartExtremeTemperatureListener();
         }
 
         private void btnGetWeather_Click(object sender, RoutedEventArgs e)
@@ -52,6 +54,10 @@ namespace P14WPF.Client
         private void StartWeatherListener()
         {
             _weatherForecast
+                  .RetryWhen(error =>
+                error
+                    .Delay(TimeSpan.FromSeconds(5))
+                    .Select(_ => Observable.Return("empty")))
                 .Subscribe(
                     x => Dispatcher.Invoke(()=> _weatherForecasts.Add(x)),
                     error => MessageBox.Show(error.Message));
@@ -62,6 +68,21 @@ namespace P14WPF.Client
             _weatherForecast
                 .Subscribe(
                     x => Dispatcher.Invoke(() => _anotherWeatherForecast.Add(x)),
+                    error => MessageBox.Show(error.Message));
+        }
+
+        private void StartExtremeTemperatureListener()
+        {
+            _weatherForecast
+                .DistinctUntilChanged(x => x.TemperatureC)
+                  .Where(x => x.TemperatureC > 30 || x.TemperatureC < 0)
+              //  .Retry(3)
+              .RetryWhen(error => 
+                error
+                    .Delay(TimeSpan.FromSeconds(5))
+                    .Select( _=>Observable.Return("empty")))
+            .Subscribe(
+                    x => Dispatcher.Invoke(() => MessageBox.Show($"{x.Date} , {x.TemperatureC}")),
                     error => MessageBox.Show(error.Message));
         }
 
