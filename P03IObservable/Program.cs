@@ -66,11 +66,36 @@
 
   
 
-    internal class Program
+    internal class Program : IObserver<float>
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+             var market = new Market(); // obiekt obserwowany
+
+            var observer = new Program(); // obiekt obserwujący
+
+            using (market.Subscribe(observer))
+            {
+                market.Notify(123.45f);
+                market.Notify(123.46f);
+                market.Notify(123.47f);
+                market.EndTransmission();
+            }
+        }
+
+        public void OnCompleted()
+        {
+            Console.WriteLine($"Market data transmission completed");
+        }
+
+        public void OnError(Exception error)
+        {
+            Console.WriteLine($"Error {error.Message}");
+        }
+
+        public void OnNext(float value)
+        {
+            Console.WriteLine($"Received new market value {value}");
         }
     }
 }
