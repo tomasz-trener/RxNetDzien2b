@@ -1,6 +1,9 @@
-﻿using P12Weather.Shared;
+﻿using Newtonsoft.Json;
+using P12Weather.Shared;
 using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace P10DequenceEmission
 {
@@ -15,6 +18,7 @@ namespace P10DequenceEmission
             var weatherService = new WeatherService(new HttpClient());
             string apiUrl = "http://localhost:5043/weatherforecast";
 
+            //var weatherForecast = weatherService.GetWeatherForecast(apiUrl);
             var weatherForecast = weatherService.GetWeatherForecast(apiUrl);
 
 
@@ -37,11 +41,34 @@ namespace P10DequenceEmission
             _httpClient = client;
         }
 
-        public IObservable<string> GetWeatherForecast(string apiUrl)
+        public virtual IObservable<string> GetWeatherForecast(string apiUrl)
         {
-            var o = Observable.FromAsync(async ct => await GetWeatherForecastAsync(apiUrl));
+            var o = Observable
+                .FromAsync(async ct => await GetWeatherForecastAsync(apiUrl))
+                .Catch(Observable.Return("0"));
             return o;
 
+        }
+        public IObservable<string> GetWeatherForecast2(string apiUrl)
+        {
+            var asyncSubject = new AsyncSubject<string>();
+            var anotherSubject = new Subject<string>();
+            GetWeatherForecastAsync(apiUrl).ContinueWith(t =>
+            {
+                if (t.IsFaulted)
+                {
+                    anotherSubject.OnError(t.Exception);
+                }
+                else
+                {
+                    anotherSubject.OnNext("Started processing...");
+                    anotherSubject.OnNext(t.Result);
+                    anotherSubject.OnCompleted();
+
+                    asyncSubject.Subscribe(anotherSubject);
+                }
+            });
+            return anotherSubject;
         }
 
         public async Task<string> GetWeatherForecastAsync(string apiUrl)
@@ -50,7 +77,7 @@ namespace P10DequenceEmission
             response.EnsureSuccessStatusCode();
 
             string content = await response.Content.ReadAsStringAsync();
-            var weatherForecast = JsonSerializer.Deserialize<WeatherForecast[]>(content);
+            var weatherForecast = JsonConvert.DeserializeObject<WeatherForecast[]>(content);
 
             return string.Join("\n", weatherForecast.Select(x => $"Date: {x.Date}, Temp: {x.TemperatureC}, Summary {x.Summary}"));
 
