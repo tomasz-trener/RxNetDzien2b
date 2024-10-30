@@ -25,14 +25,28 @@ namespace P14WPF.Client
         private IObservable<WeatherForecast> _weatherForecast;
 
         private ObservableCollection<WeatherForecast> _weatherForecasts = new ObservableCollection<WeatherForecast>();
+        private ObservableCollection<WeatherForecast> _anotherWeatherForecast = new ObservableCollection<WeatherForecast>();
         public MainWindow()
         {
             InitializeComponent();
 
             WeatherListBox.ItemsSource = _weatherForecasts;
+            AnotherListBox.ItemsSource = _anotherWeatherForecast;
 
-            _weatherForecast = GetWeatherUpdates("http://localhost:5043/weatherforecast");
+            _weatherForecast = GetWeatherUpdates("http://localhost:5043/weatherforecast")
+                .Publish()
+                .RefCount();
+           
+        }
+
+        private void btnGetWeather_Click(object sender, RoutedEventArgs e)
+        {
             StartWeatherListener();
+        }
+
+        private void btnAnotherGetWeather_Click(object sender, RoutedEventArgs e)
+        {
+            StartHighTemperatureListener();
         }
 
         private void StartWeatherListener()
@@ -40,6 +54,14 @@ namespace P14WPF.Client
             _weatherForecast
                 .Subscribe(
                     x => Dispatcher.Invoke(()=> _weatherForecasts.Add(x)),
+                    error => MessageBox.Show(error.Message));
+        }
+
+        private void StartHighTemperatureListener() 
+        {
+            _weatherForecast
+                .Subscribe(
+                    x => Dispatcher.Invoke(() => _anotherWeatherForecast.Add(x)),
                     error => MessageBox.Show(error.Message));
         }
 
@@ -80,5 +102,7 @@ namespace P14WPF.Client
                  }
              });
         }
+
+
     }
 }

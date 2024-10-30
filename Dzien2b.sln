@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P13Weather.Test", "P13Weath
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P14WPF.Client", "P14WPF.Client\P14WPF.Client.csproj", "{A23FFD3F-939C-4BEC-8559-D9C56F2F26F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P15ValueTask", "P15ValueTask\P15ValueTask.csproj", "{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{A23FFD3F-939C-4BEC-8559-D9C56F2F26F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A23FFD3F-939C-4BEC-8559-D9C56F2F26F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A23FFD3F-939C-4BEC-8559-D9C56F2F26F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,12 +7,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="WeatherListBox">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btnGetWeather" Content="Get Weather" Click="btnGetWeather_Click" Grid.Row="0" Grid.Column="0" />
+        <Button x:Name="btnAnotherGetWeather" Content="Another Get Weather" Click="btnAnotherGetWeather_Click" Grid.Row="0" Grid.Column="1" />
+
+        <ListBox x:Name="WeatherListBox" Grid.Row="1" Grid.Column="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Date}" FontWeight="Bold" />
-                        <TextBlock Text="{Binding Temperature}" />
+                        <TextBlock Text="{Binding TemperatureC}" />
+                        <TextBlock Text="{Binding Summary}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="AnotherListBox" Grid.Row="1" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Date}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding TemperatureC}" />
                         <TextBlock Text="{Binding Summary}" />
                     </StackPanel>
                 </DataTemplate>
