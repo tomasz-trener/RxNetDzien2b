@@ -109,12 +109,13 @@ namespace P14WPF.Client
                              else
                              {
                                  observer.OnError(new Exception("Api error"));
+                                 break;
                              }
 
                              await Task.Delay(5000);
                          }
                      }
-
+                      observer.OnCompleted();
 
                  }
                  catch (Exception ex)
