@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01ObserverDesignPattern", "P01ObserverDesignPattern\P01ObserverDesignPattern.csproj", "{949CA595-343B-4157-B34C-B2E0CDE76224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01ObserverDesignPattern", "P01ObserverDesignPattern\P01ObserverDesignPattern.csproj", "{949CA595-343B-4157-B34C-B2E0CDE76224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02IObserver", "P02IObserver\P02IObserver.csproj", "{300051CD-824D-405D-B6DE-036AD6402E06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02IObserver", "P02IObserver\P02IObserver.csproj", "{300051CD-824D-405D-B6DE-036AD6402E06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03IObservable", "P03IObservable\P03IObservable.csproj", "{A74B6211-BB91-4309-A178-E26D0D760241}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{300051CD-824D-405D-B6DE-036AD6402E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{300051CD-824D-405D-B6DE-036AD6402E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{300051CD-824D-405D-B6DE-036AD6402E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74B6211-BB91-4309-A178-E26D0D760241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74B6211-BB91-4309-A178-E26D0D760241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74B6211-BB91-4309-A178-E26D0D760241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74B6211-BB91-4309-A178-E26D0D760241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
