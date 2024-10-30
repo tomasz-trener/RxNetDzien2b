@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05Unsubscribing", "P05Unsu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P06Proxy", "P06Proxy\P06Proxy.csproj", "{0B1C4B9F-EE32-4DFF-AF47-30D72F4CFB46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P07ReplaySubject", "P07ReplaySubject\P07ReplaySubject.csproj", "{DBFF80C8-D85E-4A33-8808-A6403ED7C555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P08BehaviorSubject", "P08BehaviorSubject\P08BehaviorSubject.csproj", "{FA172B1C-9E2B-404E-BA26-7AF79692B912}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{0B1C4B9F-EE32-4DFF-AF47-30D72F4CFB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B1C4B9F-EE32-4DFF-AF47-30D72F4CFB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B1C4B9F-EE32-4DFF-AF47-30D72F4CFB46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFF80C8-D85E-4A33-8808-A6403ED7C555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFF80C8-D85E-4A33-8808-A6403ED7C555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFF80C8-D85E-4A33-8808-A6403ED7C555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFF80C8-D85E-4A33-8808-A6403ED7C555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA172B1C-9E2B-404E-BA26-7AF79692B912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA172B1C-9E2B-404E-BA26-7AF79692B912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA172B1C-9E2B-404E-BA26-7AF79692B912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA172B1C-9E2B-404E-BA26-7AF79692B912}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
