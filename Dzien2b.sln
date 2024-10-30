@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P14WPF.Client", "P14WPF.Cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P15ValueTask", "P15ValueTask\P15ValueTask.csproj", "{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P16SequenceGenerators", "P16SequenceGenerators\P16SequenceGenerators.csproj", "{2A376CB6-47F4-4F5D-8037-F8355020C579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P17ObservableCreate", "P17ObservableCreate\P17ObservableCreate.csproj", "{BC5A9C99-19E6-4B11-897B-524D4E5C3B12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,14 @@ Global
 		{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{812C7098-41AA-4AF4-8B3F-E02C48FCA5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A376CB6-47F4-4F5D-8037-F8355020C579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A376CB6-47F4-4F5D-8037-F8355020C579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A376CB6-47F4-4F5D-8037-F8355020C579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A376CB6-47F4-4F5D-8037-F8355020C579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC5A9C99-19E6-4B11-897B-524D4E5C3B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5A9C99-19E6-4B11-897B-524D4E5C3B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5A9C99-19E6-4B11-897B-524D4E5C3B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5A9C99-19E6-4B11-897B-524D4E5C3B12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
